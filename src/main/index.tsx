@@ -4,10 +4,15 @@
  * @Description: 
  */
 import React, { useState, useEffect } from "react";
+import { connect, useStore } from "react-redux";
 import style from "./main.module.less";
-const chatin: React.FC<{}> = () => {
-  return <div className={style["chat-body"]}>
-
+import { AppActions,AppState } from "@/reducers";
+let main: React.FC<{}> = () => {
+  const store=useStore<AppState,AppActions>()
+  
+  return <div className={style["main"]}>
+    <div></div>
   </div>
 }
-export default chatin
+main=connect()(main)
+export default main
