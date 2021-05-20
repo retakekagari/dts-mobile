@@ -5,7 +5,11 @@
  */
 declare type CharacterState={
   hp:number
-  ap:number
+  vp:number
+
+  maxHP:number
+  maxVP:number
+
   def:number
   att:number
 
