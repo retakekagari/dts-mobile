@@ -8,6 +8,7 @@ import { connect, useStore } from "react-redux";
 import style from "./main.module.less";
 import { AppActions,AppState } from "@/reducers";
 import State from "@/modules/state";
+import Char from "@/modules/char";
 let main: React.FC<{}> = () => {
   const store=useStore<AppState,AppActions>()
   const state=store.getState()
@@ -17,6 +18,7 @@ let main: React.FC<{}> = () => {
     <div></div>
     <div className={style['main-body']}>
       <State></State>
+      <Char></Char>
     </div>
   </div>
 }
