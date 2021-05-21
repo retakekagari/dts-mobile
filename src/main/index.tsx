@@ -9,6 +9,7 @@ import style from "./main.module.less";
 import { AppActions,AppState } from "@/reducers";
 import State from "@/modules/state";
 import Char from "@/modules/char";
+import Menu from "@/modules/menu";
 let main: React.FC<{}> = () => {
   const store=useStore<AppState,AppActions>()
   const state=store.getState()
@@ -19,6 +20,7 @@ let main: React.FC<{}> = () => {
     <div className={style['main-body']}>
       <State></State>
       <Char></Char>
+      <Menu></Menu>
     </div>
   </div>
 }
