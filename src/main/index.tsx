@@ -10,10 +10,11 @@ import { AppActions,AppState } from "@/reducers";
 import State from "@/modules/state";
 import Char from "@/modules/char";
 import Menu from "@/modules/menu";
+import { CharAction } from "@/reducers/characterState";
 let main: React.FC<{}> = () => {
   const store=useStore<AppState,AppActions>()
   const state=store.getState()
-  store.dispatch({type:'INIT'})
+  store.dispatch({type:CharAction.INIT})
   return <div className={style["main"]}>
     {/* 图片预留地 */}
     <div></div>

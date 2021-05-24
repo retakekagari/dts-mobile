@@ -15,7 +15,6 @@ type Props = {
 const charModal: React.FC<Props> = (props) => {
   const store = useStore<AppState, AppActions>()
   const data = store.getState().characterState
-
   if (!data.isInit) {
     return <></>
   }

@@ -7,12 +7,12 @@ interface IActionsPayloadMapping{
   [key : string]:any
 }
 
-declare type IAction<K extends Record<string,any>,M extends IActionsPayloadMapping> = {
-  [key in keyof K]: key extends keyof M?
+declare type IAction<K extends string,M extends IActionsPayloadMapping> = {
+  [key in K]: key extends keyof M?
   {
     type: key
     payload: M[key]
   }:{
     type:key
   }
-}[keyof K]
+}[K]

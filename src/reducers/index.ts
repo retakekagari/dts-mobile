@@ -5,11 +5,12 @@
  */
 import { combineReducers } from "redux";
 import characterState,{CharacterActions} from "./characterState";
-
+import areaState,{AreaActions} from "./areaState";
 const rootReducer=combineReducers({
-  characterState
+  characterState,
+  areaState
 })
 
 export type AppState=ReturnType<typeof rootReducer>
-export type AppActions=CharacterActions
+export type AppActions=CharacterActions |AreaActions
 export default rootReducer
