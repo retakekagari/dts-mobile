@@ -16,7 +16,7 @@ const modal: React.FC<Props> = (props) => {
     }
     console.log(props.children)
     return createPortal(<div>
-        <div className={style['mask']} onClick={() => props.cancel ? props.cancel() : null}></div>
+        <div className={style['mask']} onClick={props.cancel}></div>
         <div className={style['main']}>
             {props.children?props.children:null}
         </div>

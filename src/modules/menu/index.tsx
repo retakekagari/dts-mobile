@@ -33,7 +33,7 @@ let menu: React.FC<{}> = () => {
       </div>
     </div>
     <Modal visible={visible} cancel={()=>setVisible(false)}>
-      <CharModal></CharModal>
+      <CharModal close={()=>setVisible(false)}></CharModal>
     </Modal>
   </div>
 }

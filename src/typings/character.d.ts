@@ -4,6 +4,8 @@
  * @Description: 
  */
 declare type CharacterState = {
+  name:string
+
   hp: number
   vp: number
 
@@ -33,7 +35,9 @@ declare type CharacterState = {
   angry: number
 
 
-  equipment: Equipment,
+  equipment: Equipment
+  
+  inventory:Items[]
 
   isInit: true
 } | {
