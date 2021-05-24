@@ -11,10 +11,12 @@ import State from "@/modules/state";
 import Char from "@/modules/char";
 import Menu from "@/modules/menu";
 import { CharAction } from "@/reducers/characterState";
+import { AreaAction } from "@/reducers/areaState";
 let main: React.FC<{}> = () => {
   const store=useStore<AppState,AppActions>()
   const state=store.getState()
   store.dispatch({type:CharAction.INIT})
+  store.dispatch({ type: AreaAction.INIT_AREA, payload: { areaList: [{ x: 0, y: 0, desc: "", info: "无月之影", id: 1 }] } })
   return <div className={style["main"]}>
     {/* 图片预留地 */}
     <div></div>

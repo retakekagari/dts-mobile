@@ -7,11 +7,10 @@ import React from "react";
 import { useStore } from "react-redux";
 import style from "./areaModal.module.less";
 import { AppActions, AppState } from "@/reducers";
-import { AreaAction } from "@/reducers/areaState";
 const areaModal: React.FC<{}> = () => {
   const store = useStore<AppState, AppActions>()
   const data = store.getState().areaState
-  store.dispatch({ type: AreaAction.INIT_AREA, payload: { areaList: [{ x: 0, y: 0, desc: "", info: "无月之影", id: 1 }] } })
+  
   return <div className={style['main']}>
     <div className={style['area']}>
       {
