@@ -37,7 +37,7 @@ declare type CharacterState = {
 
   equipment: Equipment
   
-  inventory:Items[]
+  inventory:[Item,Item,Item,Item,Item,Item]
 
   isInit: true
 } | {

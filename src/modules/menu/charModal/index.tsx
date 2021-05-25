@@ -144,19 +144,19 @@ const charModal: React.FC<Props> = (props) => {
             data.inventory.map((item,index) => {
               return <tr key={index}>
                 <th>
-                  {item.type}
+                  {item?item.type:"--"}
                 </th>
                 <th colSpan={2}>
-                  {item.info}
+                  {item?item.info:"--"}
                 </th>
                 <th colSpan={2}>
-                  {item.desc}
+                  {item?item.desc:"--"}
                 </th>
                 <th>
-                  {item.attr}
+                  {item?item.attr:"--"}
                 </th>
                 <th>
-                  {item.dura}
+                  {item?item.dura:"--"}
                 </th>
                 <th>
                   <button>使用</button>

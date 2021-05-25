@@ -12,6 +12,7 @@ import Char from "@/modules/char";
 import Menu from "@/modules/menu";
 import { CharAction } from "@/reducers/characterState";
 import { AreaAction } from "@/reducers/areaState";
+import Inventory from "@/modules/inventory";
 let main: React.FC<{}> = () => {
   const store=useStore<AppState,AppActions>()
   const state=store.getState()
@@ -24,6 +25,7 @@ let main: React.FC<{}> = () => {
       <State></State>
       <Char></Char>
       <Menu></Menu>
+      <Inventory></Inventory>
     </div>
   </div>
 }

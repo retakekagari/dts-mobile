@@ -19,6 +19,7 @@ declare interface Items{
   dura:number
   attr:number
 }
+declare type Item = Items | null | undefined
 declare interface Booster extends Items{
   type:"booster"
   proptypes:Skill[]

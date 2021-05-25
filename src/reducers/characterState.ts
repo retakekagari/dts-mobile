@@ -52,7 +52,12 @@ const roleState = (state: CharacterState = { isInit: false }, action: CharacterA
           accessories: undefined
         },
         inventory:[
-          {type:'生命恢复',attr:100,dura:10,desc:"恢复100血量",info:"面包"}
+          {type:'生命恢复',attr:100,dura:10,desc:"恢复100血量",info:"面包"},
+          null,
+          null,
+          null,
+          null,
+          null
         ],
 
         kills: 0,
