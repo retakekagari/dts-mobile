@@ -9,11 +9,8 @@ import { AppState } from './reducers'
 const rootContainerElement = document.createElement('div')
 document.body.append(rootContainerElement)
 rootContainerElement.className=style['app']
-
-
-const mapStateToProps = (state: AppState) => ({
-  characterState: state.characterState,
-})
+import { startGClick } from "@/event/click";
+startGClick(document.body)
 const store=createStore(reducer)
 ReactDOM.render(
   <Provider store={store}>

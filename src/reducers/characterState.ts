@@ -53,7 +53,7 @@ const roleState = (state: CharacterState = { isInit: false }, action: CharacterA
         },
         inventory:[
           {type:'生命恢复',attr:100,dura:10,desc:"恢复100血量",info:"面包"},
-          null,
+          {type:'体力恢复',attr:100,dura:10,desc:"恢复100体力",info:"水"},
           null,
           null,
           null,
