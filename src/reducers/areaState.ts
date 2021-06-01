@@ -7,10 +7,10 @@ export const enum AreaAction {
   INIT_AREA = "INIT_AREA",
   UPDATE_AREA="UPDATE_AREA"
 }
-export interface IActionPayloadAreaping {
+export interface IActionPayloadMapping {
   [AreaAction.INIT_AREA]:{areaList:AreaList}
 }
-export type AreaActions = IAction<AreaAction, IActionPayloadAreaping>
+export type AreaActions = IAction<AreaAction, IActionPayloadMapping>
 
 const mapState = (state: (Areas | undefined)[][] = [], action: AreaActions) => {
   switch (action.type){
