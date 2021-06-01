@@ -9,12 +9,25 @@ import { AppState,AppActions  } from "@/reducers";
 import style from "./message.module.less";
 import Shop from "./shop";
 
+
 const message:React.FC<{}>=()=>{
   const store=useStore<AppState,AppActions>()
-
+  const message=store.getState().messageState
+  function renderModule(){
+    switch(message.type){
+      case 'shop':
+        return <Shop message={message.message}></Shop>
+      case 'fight':
+        return <div></div>
+      default:
+        return null;
+    }
+  }
   return <div className={style['main']}>
     <div className={style['message']}>
-      <Shop></Shop>
+      {
+        renderModule()
+      }
     </div>
   </div> 
 }

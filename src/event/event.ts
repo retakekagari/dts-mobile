@@ -22,7 +22,7 @@ class BaseEvent<T extends Event>{
     this.prevent = uuid
   }
   del(uuid: string){
-    
+    delete this.eventList[uuid]
   }
   protected run(event: T) {
     Object.keys(this.eventList).forEach(key => {

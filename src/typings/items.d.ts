@@ -18,6 +18,7 @@ declare interface Items{
   desc:string
   dura:number
   attr:number
+  price:number
 }
 declare type Item = Items | null | undefined
 declare interface Booster extends Items{

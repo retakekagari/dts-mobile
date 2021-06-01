@@ -4,13 +4,15 @@
  * @Description: 
  */
 import { combineReducers } from "redux";
-import characterState,{CharacterActions} from "./characterState";
-import areaState,{AreaActions} from "./areaState";
-const rootReducer=combineReducers({
+import characterState, { CharacterActions } from "./characterState";
+import areaState, { AreaActions } from "./areaState";
+import messageState, { MessageActions } from "./messageState";
+const rootReducer = combineReducers({
   characterState,
+  messageState,
   areaState
 })
 
-export type AppState=ReturnType<typeof rootReducer>
-export type AppActions=CharacterActions |AreaActions
+export type AppState = ReturnType<typeof rootReducer>
+export type AppActions = CharacterActions | AreaActions | MessageActions
 export default rootReducer
