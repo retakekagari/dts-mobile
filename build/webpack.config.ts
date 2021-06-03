@@ -14,11 +14,18 @@ interface WebpackDevServerOptions {
     port: number
   }
 }
-
+const path=require("path")
+function srcPath(subdir) {
+    return path.join(__dirname, "../", subdir);
+}
 const webpackOptions: Webpack.Configuration & WebpackDevServerOptions = {
   mode: 'development',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+    alias:{
+      process: "process/browser",
+      "@":srcPath('src')
+    }
   },
   output: {
     publicPath: '/'
@@ -47,19 +54,19 @@ const webpackOptions: Webpack.Configuration & WebpackDevServerOptions = {
           {
             loader: 'style-loader',
             options: {
-              esModule: true,
+              esModule: false,
               modules: {
-                namedExport: true,
+                namedExport: false,
               },
             },
           },
           {
             loader: 'css-loader',
             options: {
-              esModule: true,
+              esModule: false,
               modules: {
-                namedExport: true,
-                exportLocalsConvention: 'dashesOnly',
+                namedExport: false,
+                exportLocalsConvention: 'asIs',
                 localIdentName: '[local]_[hash:base64:5]',
               }
             },
@@ -90,7 +97,7 @@ const webpackOptions: Webpack.Configuration & WebpackDevServerOptions = {
         use: ['@svgr/webpack'],
       },
       {
-        test: /\.glsl$/i,
+        test: /\.(glsl)$/i,
         use: 'raw-loader',
       },
       {
@@ -104,6 +111,9 @@ const webpackOptions: Webpack.Configuration & WebpackDevServerOptions = {
     new HtmlPlugin({
       template: './index.html'
     }),
+    new Webpack.ProvidePlugin({
+      process: 'process/browser',
+    })
   ]
 }
 

@@ -1,19 +1,41 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+require('dotenv').config()
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-const path=require("path")
+exports.__esModule = true;
+var Webpack = __importStar(require("webpack"));
+var html_webpack_plugin_1 = __importDefault(require("html-webpack-plugin"));
+var path = require("path");
 function srcPath(subdir) {
     return path.join(__dirname, "../", subdir);
 }
-exports.__esModule = true;
-var html_webpack_plugin_1 = __importDefault(require("html-webpack-plugin"));
 var webpackOptions = {
     mode: 'development',
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
-        alias:{
-            "@":srcPath('src')
+        alias: {
+            process: "process/browser",
+            "@": srcPath('src')
         }
     },
     output: {
@@ -82,7 +104,7 @@ var webpackOptions = {
             },
             {
                 test: /\.svg$/,
-                use: ['@svgr/webpack'],
+                use: ['@svgr/webpack']
             },
             {
                 test: /\.(glsl)$/i,
@@ -99,6 +121,12 @@ var webpackOptions = {
         new html_webpack_plugin_1["default"]({
             template: './index.html'
         }),
+        new Webpack.ProvidePlugin({
+            process: 'process/browser'
+        }),
+        new Webpack.DefinePlugin({
+          'NODE_ENV': JSON.stringify('development')
+        })
     ]
 };
 exports["default"] = webpackOptions;

@@ -13,7 +13,11 @@ import Menu from "@/modules/menu";
 import { CharAction } from "@/reducers/characterState";
 import { AreaAction } from "@/reducers/areaState";
 import Inventory from "@/modules/inventory";
+import { WebSocketInit } from "@/mock/WS-mock";
 let main: React.FC<{}> = () => {
+  useEffect(()=>{
+    const ws=WebSocketInit('dddd',[])
+  },[])
   const store=useStore<AppState,AppActions>()
   const state=store.getState()
   store.dispatch({type:CharAction.INIT})
