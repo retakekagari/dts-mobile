@@ -10,7 +10,7 @@ class WebSocketMock extends EventTarget {
   constructor(url:string,protocol:string[]|string){
     super()
     this.url=url
-    this.clock=setTimeout(this.run, 1000);
+    this.clock=setTimeout(()=>this.run(), 1000);
   }
   public binaryType: BinaryType = "blob"
   public readonly bufferdAmount: number = 0
@@ -40,11 +40,12 @@ class WebSocketMock extends EventTarget {
   public readonly OPEN: number=1;
 
   private run(){
-    this.clock=setTimeout(() => {
+    this.clock=setTimeout(()=>{
       this.run()
     }, 1000);
   }
 }
+
 function WebSocketInit(url:string,protocol:string[]|string){
   if(process.env.NODE_ENV==="development"){
     return new WebSocketMock(url,protocol)
