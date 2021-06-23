@@ -10,6 +10,7 @@ import { AppActions,AppState } from "@/reducers";
 import State from "@/modules/state";
 import Char from "@/modules/char";
 import Menu from "@/modules/menu";
+import Chat from "@/modules/chat";
 import { CharAction } from "@/reducers/characterState";
 import { AreaAction } from "@/reducers/areaState";
 import Inventory from "@/modules/inventory";
@@ -27,6 +28,7 @@ let main: React.FC<{}> = () => {
     <div></div>
     <div className={style['main-body']}>
       <State></State>
+      <Chat></Chat>
       <Char></Char>
       <Menu></Menu>
       <Inventory></Inventory>

@@ -8,8 +8,8 @@ import style from "./confirm.module.less";
 import Modal from "@/component/modal";
 type Props = {
   visible?: boolean
-  cancel?: () => any
-  confirm?: () => any
+  cancel?: () => unknown
+  confirm?: () => unknown
 }
 const confirm: React.FC<Props> = (props) => {
   const [visible, setVisible] = useState(false)

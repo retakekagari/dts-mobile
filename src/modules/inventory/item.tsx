@@ -7,7 +7,7 @@ import React, { useState, useEffect, useRef, MouseEvent } from "react";
 import { useStore } from "react-redux";
 import style from "./item.module.less";
 import { AppState, AppActions } from "@/reducers";
-import { getEvents } from "@/event"
+import { globalClick } from "@/event"
 import { filter } from "rxjs/operators";
 type Props = {
   useItem?: (item: Item) => any
@@ -27,7 +27,7 @@ const item: React.FC<Props> = (props) => {
     setVisible(false)
   }
   useEffect(() => {
-    const id = getEvents().globalClick
+    const id = globalClick
       .pipe(filter(event => event.target != divRef.current))
       .subscribe(() => setVisible(false))
     return () => id.unsubscribe()

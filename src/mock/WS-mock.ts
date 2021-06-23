@@ -1,10 +1,11 @@
-
-
 /*
  * @Author: mengdaoshizhongxinyang
  * @Date: 2021-06-03 10:49:19
  * @Description: 
  */
+namespace WebSocketMock{
+  export type ReadyState=0|1|2|3
+}
 class WebSocketMock extends EventTarget {
   private clock:number
   constructor(url:string,protocol:string[]|string){
@@ -21,7 +22,7 @@ class WebSocketMock extends EventTarget {
   public onopen: ((this: WebSocketMock, ev: Event) => any) | null = null;
   public readonly protocol: string="";
 
-  public readonly readyState: 0|1|2|3=3;
+  public readonly readyState: WebSocketMock.ReadyState=3;
 
   public readonly url: string="";
 
@@ -34,10 +35,10 @@ class WebSocketMock extends EventTarget {
 
   };
 
-  public readonly CLOSED: number=3;
-  public readonly CLOSING: number=2;
-  public readonly CONNECTING: number=0;
-  public readonly OPEN: number=1;
+  public readonly CLOSED: WebSocketMock.ReadyState=3;
+  public readonly CLOSING: WebSocketMock.ReadyState=2;
+  public readonly CONNECTING: WebSocketMock.ReadyState=0;
+  public readonly OPEN: WebSocketMock.ReadyState=1;
 
   private run(){
     this.clock=setTimeout(()=>{

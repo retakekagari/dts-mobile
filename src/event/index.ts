@@ -6,11 +6,7 @@ import { fromEvent } from "rxjs";
  * @Description: 
  */
 const globalClick=fromEvent<MouseEvent>(document.body,'click')
-let getEvents=()=>{
-  return {
-    globalClick
-  }
-}
+
 export {
-  getEvents
+  globalClick
 }

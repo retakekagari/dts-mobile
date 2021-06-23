@@ -1,3 +1,5 @@
+import { range } from "rxjs"
+
 /*
  * @Author: mengdaoshizhongxinyang
  * @Date: 2021-05-24 15:35:07
@@ -12,16 +14,16 @@ export interface IActionPayloadMapping {
 }
 export type AreaActions = IAction<AreaAction, IActionPayloadMapping>
 
-const mapState = (state: (Areas | undefined)[][] = [], action: AreaActions) => {
+const mapState = (state: (Areas | null)[][] = [], action: AreaActions) => {
   switch (action.type){
     case AreaAction.INIT_AREA:
-      for(let i=0;i<5;i++){
-        let temp=[]
-        for(let i=0;i<5;i++){
-          temp.push(undefined)
-        }
-        state.push(temp)
-      }
+      let temp:null[]=[]
+      range(1,5).forEach(()=>{
+        temp.push(null)
+      })
+      range(1,5).forEach(()=>{
+        state.push(([] as null[]).concat(temp))
+      })
       action.payload.areaList.forEach(item=>{
         state[item.y][item.x]=item
       })
